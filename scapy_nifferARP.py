@@ -1,6 +1,9 @@
 import scapy.all as scapy
 import sys
 
+# n'est pas opérationnel, à modifier pour qu'il fonctionne sur python
+# marche en scapy directement
+
 ans, unans = scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst=sys.argv[1]+"/24"), timeout=2)
 
 rep = ans.summary(lambda s,r: r.sprintf("%Ether.src% %ARP.psrc%"))
